@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Página das Páginas — Livraria Independente</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header id="navbar">
+    <nav class="nav-container">
+      <a href="#inicio" class="nav-logo">
+        <span class="logo-symbol">❧</span>
+        <span class="logo-text">Página das Páginas</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#inicio" class="nav-link active">Início</a></li>
+        <li><a href="#catalogo" class="nav-link">Catálogo</a></li>
+        <li><a href="#sobre" class="nav-link">Sobre</a></li>
+        <li><a href="#pedir-obra" class="nav-link nav-cta">Pedir Obra</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">☰</button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===== INÍCIO / HERO ===== -->
+    <section id="inicio" class="hero">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Curadoria artesanal desde 2009</p>
+        <h1 class="hero-title">Livros que encontram<br /><em>quem merece lê-los.</em></h1>
+        <p class="hero-subtitle">
+          Títulos nacionais e importados, autores independentes e obras raras —
+          escolhidos um a um para quem leva leitura a sério.
+        </p>
+        <div class="hero-actions">
+          <a href="#catalogo" class="btn btn-primary">Ver Catálogo</a>
+          <a href="#sobre" class="btn btn-outline">Nossa história</a>
+        </div>
+      </div>
+      <div class="hero-ornament">
+        <div class="ornament-stack">
+          <div class="ornament-book ornament-book--back"></div>
+          <div class="ornament-book ornament-book--mid"></div>
+          <div class="ornament-book ornament-book--front"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DESTAQUES ===== -->
+    <section class="highlights">
+      <div class="container">
+        <div class="highlights-grid">
+          <div class="highlight-item">
+            <span class="highlight-number">+3 200</span>
+            <span class="highlight-label">títulos em acervo</span>
+          </div>
+          <div class="highlight-divider"></div>
+          <div class="highlight-item">
+            <span class="highlight-number">+400</span>
+            <span class="highlight-label">autores independentes</span>
+          </div>
+          <div class="highlight-divider"></div>
+          <div class="highlight-item">
+            <span class="highlight-number">15 anos</span>
+            <span class="highlight-label">de curadoria artesanal</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CATÁLOGO ===== -->
+    <section id="catalogo" class="catalogo">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-eyebrow">Acervo</p>
+          <h2 class="section-title">Catálogo</h2>
+          <p class="section-desc">Uma seleção de títulos que passaram pelas mãos dos nossos curadores. Use a busca para encontrar o seu próximo livro.</p>
+        </header>
+
+        <!-- Barra de busca (JS vai animar) -->
+        <div class="search-bar">
+          <input
+            type="search"
+            id="buscaLivros"
+            class="search-input"
+            placeholder="Buscar por título, autor ou categoria…"
+            aria-label="Buscar livros"
+          />
+          <span class="search-icon">&#128269;</span>
+        </div>
+
+        <!-- Filtros de categoria -->
+        <div class="filtros" id="filtros">
+          <button class="filtro-btn active" data-categoria="todos">Todos</button>
+          <button class="filtro-btn" data-categoria="nacional">Nacional</button>
+          <button class="filtro-btn" data-categoria="importado">Importado</button>
+          <button class="filtro-btn" data-categoria="raro">Obra Rara</button>
+          <button class="filtro-btn" data-categoria="independente">Independente</button>
+        </div>
+
+        <!-- Grid de cards -->
+        <div class="cards-grid" id="cardsGrid">
+
+          <article class="card" data-categoria="nacional">
+            <div class="card-badge">Nacional</div>
+            <div class="card-cover card-cover--1"></div>
+            <div class="card-body">
+              <p class="card-author">Conceição Evaristo</p>
+              <h3 class="card-title">Ponciá Vicêncio</h3>
+              <p class="card-desc">Romance de estreia que explora memória, identidade e ancestralidade com linguagem poética e densa.</p>
+              <div class="card-footer">
+                <span class="card-price">R$ 49,90</span>
+                <a href="#pedir-obra" class="btn btn-sm">Pedir</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" data-categoria="importado">
+            <div class="card-badge card-badge--importado">Importado</div>
+            <div class="card-cover card-cover--2"></div>
+            <div class="card-body">
+              <p class="card-author">Olga Tokarczuk</p>
+              <h3 class="card-title">Os Errantes</h3>
+              <p class="card-desc">Prêmio Nobel 2018. Fragmentos de narrativa que compõem um mosaico sobre viagem, corpo e movimento.</p>
+              <div class="card-footer">
+                <span class="card-price">R$ 74,90</span>
+                <a href="#pedir-obra" class="btn btn-sm">Pedir</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" data-categoria="raro">
+            <div class="card-badge card-badge--raro">Obra Rara</div>
+            <div class="card-cover card-cover--3"></div>
+            <div class="card-body">
+              <p class="card-author">Clarice Lispector</p>
+              <h3 class="card-title">A Maçã no Escuro</h3>
+              <p class="card-desc">Edição de 1961 em estado de conservação excepcional. Um dos grandes romances da literatura brasileira.</p>
+              <div class="card-footer">
+                <span class="card-price">Sob consulta</span>
+                <a href="#pedir-obra" class="btn btn-sm">Pedir</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" data-categoria="independente">
+            <div class="card-badge card-badge--independente">Independente</div>
+            <div class="card-cover card-cover--4"></div>
+            <div class="card-body">
+              <p class="card-author">Allan da Rosa</p>
+              <h3 class="card-title">Cascata</h3>
+              <p class="card-desc">Poesia periférica de força rara. Publicado por editora independente paulistana com tiragem limitada.</p>
+              <div class="card-footer">
+                <span class="card-price">R$ 38,00</span>
+                <a href="#pedir-obra" class="btn btn-sm">Pedir</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" data-categoria="nacional">
+            <div class="card-badge">Nacional</div>
+            <div class="card-cover card-cover--5"></div>
+            <div class="card-body">
+              <p class="card-author">Milton Hatoum</p>
+              <h3 class="card-title">Dois Irmãos</h3>
+              <p class="card-desc">Saga familiar ambientada em Manaus. Uma das narrativas mais densas e belas da prosa contemporânea.</p>
+              <div class="card-footer">
+                <span class="card-price">R$ 59,90</span>
+                <a href="#pedir-obra" class="btn btn-sm">Pedir</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" data-categoria="importado">
+            <div class="card-badge card-badge--importado">Importado</div>
+            <div class="card-cover card-cover--6"></div>
+            <div class="card-body">
+              <p class="card-author">Han Kang</p>
+              <h3 class="card-title">A Vegetariana</h3>
+              <p class="card-desc">Prêmio Booker Internacional 2016. Uma mulher decide parar de comer carne e abala toda uma família.</p>
+              <div class="card-footer">
+                <span class="card-price">R$ 64,90</span>
+                <a href="#pedir-obra" class="btn btn-sm">Pedir</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <p class="catalogo-empty" id="emptyMsg" style="display:none;">Nenhum livro encontrado para essa busca.</p>
+
+      </div>
+    </section>
+
+    <!-- ===== SOBRE ===== -->
+    <section id="sobre" class="sobre">
+      <div class="container sobre-grid">
+
+        <div class="sobre-texto">
+          <p class="section-eyebrow">Nossa história</p>
+          <h2 class="section-title sobre-title">Uma livraria nascida<br />do amor ao livro físico.</h2>
+          <p>
+            A <strong>Página das Páginas</strong> abriu suas portas em 2009 num casarão do centro histórico,
+            com duas prateleiras e um sonho: reunir os livros que o mercado editorial ignora.
+            Quinze anos depois, nosso acervo cresceu, mas o método não mudou.
+          </p>
+          <p>
+            Cada título é avaliado pessoalmente antes de entrar no catálogo. Buscamos obras de
+            autores independentes, raridades de segunda mão e importados que ainda não chegaram
+            ao Brasil — e quando um cliente não encontra o que procura, trabalhamos para encontrar.
+          </p>
+          <p>
+            Atendimento personalizado não é slogan aqui. É o único jeito que sabemos trabalhar.
+          </p>
+
+          <div class="sobre-diferenciais">
+            <div class="diferencial">
+              <span class="diferencial-icon">✦</span>
+              <div>
+                <strong>Curadoria artesanal</strong>
+                <p>Todo livro do acervo foi lido ou recomendado por um de nossos curadores.</p>
+              </div>
+            </div>
+            <div class="diferencial">
+              <span class="diferencial-icon">✦</span>
+              <div>
+                <strong>Busca por encomenda</strong>
+                <p>Não encontrou? Pedimos para você — nacional, importado ou esgotado.</p>
+              </div>
+            </div>
+            <div class="diferencial">
+              <span class="diferencial-icon">✦</span>
+              <div>
+                <strong>Foco no independente</strong>
+                <p>Priorizamos editoras e autores que fogem do circuito comercial.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="sobre-citacao">
+          <blockquote>
+            <p>
+              "Um livro é uma versão do mundo. Se você não gosta dele, ignore-o;
+              se ele realmente absorve você, termine-o com amor."
+            </p>
+            <cite>— Salman Rushdie</cite>
+          </blockquote>
+          <div class="sobre-img-placeholder">
+            <div class="img-inner">
+              <span>📚</span>
+              <small>Fachada da livraria — Centro Histórico</small>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- ===== PEDIR OBRA ===== -->
+    <section id="pedir-obra" class="pedir-obra">
+      <div class="container">
+        <header class="section-header section-header--light">
+          <p class="section-eyebrow section-eyebrow--light">Formulário</p>
+          <h2 class="section-title section-title--light">Pedir uma Obra</h2>
+          <p class="section-desc section-desc--light">
+            Não encontrou o título no catálogo? Preencha abaixo e nossa equipe entra em contato
+            com disponibilidade e prazo de entrega.
+          </p>
+        </header>
+
+        <form class="form-pedido" id="formPedido" novalidate>
+
+          <fieldset class="form-fieldset">
+            <legend class="form-legend">Seus dados</legend>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nome" class="form-label">Nome completo <span class="required">*</span></label>
+                <input type="text" id="nome" name="nome" class="form-input" placeholder="Ex: Maria Souza" required />
+                <span class="form-error" id="erroNome"></span>
+              </div>
+              <div class="form-group">
+                <label for="email" class="form-label">E-mail <span class="required">*</span></label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="Ex: maria@email.com" required />
+                <span class="form-error" id="erroEmail"></span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="telefone" class="form-label">Telefone / WhatsApp</label>
+                <input type="tel" id="telefone" name="telefone" class="form-input" placeholder="(48) 9 0000-0000" />
+              </div>
+              <div class="form-group">
+                <label for="contato" class="form-label">Prefere ser contatado por</label>
+                <select id="contato" name="contato" class="form-select">
+                  <option value="">Selecione…</option>
+                  <option value="email">E-mail</option>
+                  <option value="whatsapp">WhatsApp</option>
+                  <option value="qualquer">Qualquer um</option>
+                </select>
+              </div>
+            </div>
+
+          </fieldset>
+
+          <fieldset class="form-fieldset">
+            <legend class="form-legend">Sobre o livro</legend>
+
+            <div class="form-row">
+              <div class="form-group form-group--full">
+                <label for="titulo" class="form-label">Título da obra <span class="required">*</span></label>
+                <input type="text" id="titulo" name="titulo" class="form-input" placeholder="Ex: O Senhor dos Anéis" required />
+                <span class="form-error" id="erroTitulo"></span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="autor" class="form-label">Autor</label>
+                <input type="text" id="autor" name="autor" class="form-input" placeholder="Ex: J.R.R. Tolkien" />
+              </div>
+              <div class="form-group">
+                <label for="tipo" class="form-label">Tipo de obra</label>
+                <select id="tipo" name="tipo" class="form-select">
+                  <option value="">Selecione…</option>
+                  <option value="nacional">Nacional</option>
+                  <option value="importado">Importado</option>
+                  <option value="raro">Obra rara / esgotada</option>
+                  <option value="nao-sei">Não sei</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group form-group--full">
+                <label for="observacoes" class="form-label">Observações adicionais</label>
+                <textarea id="observacoes" name="observacoes" class="form-textarea" rows="4"
+                  placeholder="Edição específica, idioma, urgência ou qualquer detalhe relevante…"></textarea>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group form-group--checkbox">
+                <input type="checkbox" id="newsletter" name="newsletter" class="form-checkbox" />
+                <label for="newsletter" class="form-label-check">
+                  Quero receber novidades e chegadas especiais da Página das Páginas.
+                </label>
+              </div>
+            </div>
+
+          </fieldset>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary btn-lg" id="btnEnviar">Enviar pedido</button>
+            <button type="reset" class="btn btn-ghost">Limpar</button>
+          </div>
+
+          <div class="form-feedback" id="formFeedback" style="display:none;"></div>
+
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="logo-symbol">❧</span>
+        <span class="logo-text">Página das Páginas</span>
+        <p class="footer-tagline">Curadoria artesanal de títulos nacionais e importados.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Links do rodapé">
+        <a href="#inicio">Início</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#pedir-obra">Pedir Obra</a>
+      </nav>
+      <div class="footer-info">
+        <p>📍 Rua das Letras, 42 — Centro Histórico</p>
+        <p>📞 (48) 3333-0000</p>
+        <p>✉ contato@paginadaspaginas.com.br</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Página das Páginas — Todos os direitos reservados.</p>
+      <p class="footer-dev">Desenvolvido por <strong>Yan Martins</strong> — IFSC Garopaba</p>
+    </div>
+  </footer>
+
+</body>
+</html>
