@@ -27,3 +27,31 @@ campoBusca.addEventListener('input', function () {
 
   emptyMsg.style.display = visiveis === 0 ? 'block' : 'none';
 });
+
+// ===== 3. FILTROS POR CATEGORIA =====
+const filtrosBtns = document.querySelectorAll('.filtro-btn');
+
+filtrosBtns.forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    // Remove active de todos
+    filtrosBtns.forEach(function (b) { b.classList.remove('active'); });
+    this.classList.add('active');
+
+    const categoria = this.dataset.categoria;
+    let visiveis = 0;
+
+    cards.forEach(function (card) {
+      if (categoria === 'todos' || card.dataset.categoria === categoria) {
+        card.style.display = 'flex';
+        visiveis++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    emptyMsg.style.display = visiveis === 0 ? 'block' : 'none';
+
+    // Limpa a busca ao trocar filtro
+    campoBusca.value = '';
+  });
+});
