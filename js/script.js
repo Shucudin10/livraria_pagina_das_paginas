@@ -6,7 +6,7 @@ navToggle.addEventListener('click', function () {
   navLinks.classList.toggle('open');
 });
 
-// ===== 2. BUSCA DINÂMICA NO CATÁLOGO =====
+// ===== BUSCA DINÂMICA NO CATÁLOGO =====
 const campoBusca = document.getElementById('buscaLivros');
 const cards = document.querySelectorAll('.card');
 const emptyMsg = document.getElementById('emptyMsg');
@@ -28,7 +28,7 @@ campoBusca.addEventListener('input', function () {
   emptyMsg.style.display = visiveis === 0 ? 'block' : 'none';
 });
 
-// ===== 3. FILTROS POR CATEGORIA =====
+// ===== FILTROS POR CATEGORIA =====
 const filtrosBtns = document.querySelectorAll('.filtro-btn');
 
 filtrosBtns.forEach(function (btn) {
@@ -54,4 +54,63 @@ filtrosBtns.forEach(function (btn) {
     // Limpa a busca ao trocar filtro
     campoBusca.value = '';
   });
+});
+
+// ===== VALIDAÇÃO DO FORMULÁRIO =====
+const form = document.getElementById('formPedido');
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  let valido = true;
+
+  // Nome
+  const nome = document.getElementById('nome');
+  const erroNome = document.getElementById('erroNome');
+  if (nome.value.trim() === '') {
+    erroNome.textContent = 'Por favor, informe seu nome.';
+    nome.classList.add('input-error');
+    valido = false;
+  } else {
+    erroNome.textContent = '';
+    nome.classList.remove('input-error');
+  }
+
+  // Email
+  const email = document.getElementById('email');
+  const erroEmail = document.getElementById('erroEmail');
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email.value.trim())) {
+    erroEmail.textContent = 'Informe um e-mail válido.';
+    email.classList.add('input-error');
+    valido = false;
+  } else {
+    erroEmail.textContent = '';
+    email.classList.remove('input-error');
+  }
+
+  // Título
+  const titulo = document.getElementById('titulo');
+  const erroTitulo = document.getElementById('erroTitulo');
+  if (titulo.value.trim() === '') {
+    erroTitulo.textContent = 'Informe o título da obra.';
+    titulo.classList.add('input-error');
+    valido = false;
+  } else {
+    erroTitulo.textContent = '';
+    titulo.classList.remove('input-error');
+  }
+
+  // Feedback final
+  const feedback = document.getElementById('formFeedback');
+  if (valido) {
+    feedback.textContent = '✔ Pedido enviado com sucesso! Entraremos em contato em breve.';
+    feedback.className = 'form-feedback sucesso';
+    feedback.style.display = 'block';
+    form.reset();
+  } else {
+    feedback.textContent = '✖ Corrija os campos destacados antes de enviar.';
+    feedback.className = 'form-feedback erro';
+    feedback.style.display = 'block';
+  }
 });

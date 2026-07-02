@@ -61,3 +61,4 @@
 - Menu mobile: clique no botão hambúrguer adiciona/remove a classe "open" na lista de links
 - Busca dinâmica: escuta o evento "input" no campo de busca e mostra/oculta cards conforme o texto digitado bate com o conteúdo do card (innerText)
 - Filtros por categoria: clique nos botões de filtro mostra apenas os cards com data-categoria correspondente; limpa o campo de busca ao trocar de filtro
+- Validação do formulário: intercepta o submit, valida nome (não vazio), e-mail (regex) e título (não vazio), exibe mensagens de erro individuais e feedback geral de sucesso ou erro
