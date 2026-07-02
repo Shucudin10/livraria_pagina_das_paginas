@@ -114,3 +114,24 @@ form.addEventListener('submit', function (e) {
     feedback.style.display = 'block';
   }
 });
+
+// ===== DESTAQUE DO LINK ATIVO AO ROLAR =====
+const secoes = document.querySelectorAll('section[id], div[id]');
+const linksNav = document.querySelectorAll('.nav-link');
+
+window.addEventListener('scroll', function () {
+  let atual = '';
+
+  secoes.forEach(function (secao) {
+    if (window.scrollY >= secao.offsetTop - 100) {
+      atual = secao.id;
+    }
+  });
+
+  linksNav.forEach(function (link) {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + atual) {
+      link.classList.add('active');
+    }
+  });
+});
