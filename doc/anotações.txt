@@ -1,0 +1,61 @@
+=== index.html ===
+ 
+- Estrutura semântica HTML5 com as tags: header, nav, main, section, article, aside, footer
+- Navbar fixa no topo com logo, links de navegação (Início, Catálogo, Sobre, Pedir Obra) e botão hambúrguer para mobile
+- Seção Hero (início) com título, subtítulo, dois botões de ação e ornamento decorativo de livros em CSS puro
+- Faixa de destaques com três estatísticas da livraria (acervo, autores, anos)
+- Seção Catálogo com:
+    - Campo de busca dinâmica (#buscaLivros)
+    - Botões de filtro por categoria com atributo data-categoria (Todos, Nacional, Importado, Obra Rara, Independente)
+    - Grid de 6 cards de livros, cada um com badge, capa, autor, título, descrição, preço e botão
+    - Mensagem de "nenhum resultado" (#emptyMsg) para quando a busca não encontrar nada
+- Seção Sobre com dois blocos: texto + diferenciais à esquerda, citação + imagem à direita
+- Seção Pedir Obra com formulário dividido em dois fieldsets:
+    - Fieldset 1 (seus dados): nome, e-mail, telefone, preferência de contato
+    - Fieldset 2 (sobre o livro): título, autor, tipo de obra, observações, checkbox de newsletter
+    - Spans de erro individuais para validação JS (#erroNome, #erroEmail, #erroTitulo)
+    - Div de feedback geral (#formFeedback) para mensagem de sucesso ou erro
+- Footer com três colunas: marca, links de navegação e informações de contato
+ 
+ 
+=== css/style.css ===
+ 
+- Reset geral com box-sizing, margin e padding zerados
+- Variáveis de cores aplicadas diretamente conforme paleta do projeto:
+    - #7A1C1C — vermelho primário
+    - #FAF7F2 — bege fundo
+    - #E8D5A3 — amarelo destaque
+    - #0F0B06 — preto textos e fundo escuro
+    - #5A4A3A — marrom textos secundários
+- Tipografia com Google Fonts: Playfair Display (títulos) e Lato (corpo)
+- Container centralizado com max-width de 1140px
+- Botões com variantes: btn-primary, btn-outline, btn-ghost, btn-sm, btn-lg
+- Navbar com fundo escuro, borda vermelha inferior, link ativo em amarelo e botão CTA
+- Hero com fundo escuro, linhas decorativas em CSS, título responsivo com clamp()
+- Ornamento de livros empilhados feito 100% em CSS (três divs com rotação e cores diferentes)
+- Faixa de destaques com Flexbox e divisórias verticais
+- Catálogo com:
+    - Campo de busca estilizado com ícone posicionado
+    - Filtros em formato de pílulas (border-radius: 100px)
+    - Grid de cards com Flexbox, sombra e hover com elevação (translateY)
+    - Capas dos livros simuladas com gradientes CSS
+    - Badges coloridos por categoria
+- Seção Sobre com layout em duas colunas via Flexbox, blockquote com borda esquerda vermelha
+- Formulário com:
+    - Fieldsets sem borda padrão, com legend estilizado
+    - Linhas de campos em Flexbox (form-row)
+    - Inputs, selects e textarea com borda amarela e foco vermelho
+    - Select com seta customizada via SVG inline no background-image
+    - Checkbox com accent-color vermelho
+    - Estados de erro com borda vermelha (input-error)
+    - Feedback de sucesso (verde) e erro (vermelho) com borda lateral
+- Footer com grid em três colunas e borda superior vermelha
+- Responsividade com dois breakpoints:
+    - 900px: menu mobile, hero em coluna única, formulário empilhado, footer reorganizado
+    - 600px: cards em largura total, título menor
+- Suporte a prefers-reduced-motion para acessibilidade
+- Estilo de foco visível (:focus-visible) para acessibilidade por teclado
+
+=== js/script.js ===
+ 
+- Menu mobile: clique no botão hambúrguer adiciona/remove a classe "open" na lista de links
